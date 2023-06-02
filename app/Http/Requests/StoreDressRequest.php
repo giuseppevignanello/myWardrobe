@@ -13,7 +13,7 @@ class StoreDressRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class StoreDressRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|unique:dresses|min:3|max:256',
+            'type' => 'required|min:3|max:256',
+            'brand' => 'nullable',
+            'size' => 'required|max:5',
+            'color' => 'required|max:100',
+            'description' => 'nullable',
+            'price' => 'nullable',
+            'purchase_date' => 'nullable',
+            'season' => 'nullable',
+            'image' => 'nullable'
+
         ];
     }
 }

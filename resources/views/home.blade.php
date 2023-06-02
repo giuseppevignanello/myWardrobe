@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <a name="" id="" class="btn btn-primary mt-5" href="#" role="button">Add New Dress</a>
+        <a class="btn btn-primary mt-5" href="{{ route('dresses.create') }}" role="button">Add New Dress</a>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 my-3 g-5">
             @forelse ($dresses as $dress)
                 <div class="card border-0">

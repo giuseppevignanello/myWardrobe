@@ -35,7 +35,11 @@ class DressController extends Controller
      */
     public function store(StoreDressRequest $request)
     {
-        
+
+        $val_data = $request->validated();
+        Dress::create($val_data);
+
+        return to_route('home')->with('message', 'Dress created successfully');
     }
 
     /**
