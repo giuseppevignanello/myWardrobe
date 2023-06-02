@@ -1,1 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
+
+
+.card-img-fixed-height {
+    height: 300px;
+    object-fit: cover;
+
+}
