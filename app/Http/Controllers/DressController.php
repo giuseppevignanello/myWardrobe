@@ -84,6 +84,7 @@ class DressController extends Controller
      */
     public function destroy(Dress $dress)
     {
-        //
+        $dress->delete();
+        return to_route('home')->with('message', 'Dress deleted');
     }
 }
