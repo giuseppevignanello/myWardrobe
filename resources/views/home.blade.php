@@ -14,6 +14,7 @@
                             data-bs-target="#deleteModal-{{ $dress->id }}">
                             <i class="fa-solid fa-trash"></i>
                         </button>
+                        <a class="btn btn-primary" href="#" role="button"><i class="fa-solid fa-eye"></i></a>
                     </div>
                     <div class="modal fade" id="deleteModal-{{ $dress->id }}" tabindex="-1" data-bs-backdrop="static"
                         data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
