@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Dress;
 use App\Http\Requests\StoreDressRequest;
 use App\Http\Requests\UpdateDressRequest;
+use Illuminate\Support\Facades\Http;
 
 class DressController extends Controller
 {
