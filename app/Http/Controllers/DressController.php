@@ -15,6 +15,9 @@ class DressController extends Controller
      */
     public function index()
     {
+
+        $dresses = Dress::all();
+        return view('dress.index', compact('dresses'));
     }
 
     /**
@@ -24,7 +27,7 @@ class DressController extends Controller
      */
     public function create()
     {
-        return view('dresses.create');
+        return view('dress.create');
     }
 
     /**
@@ -39,7 +42,7 @@ class DressController extends Controller
         $val_data = $request->validated();
         Dress::create($val_data);
 
-        return to_route('home')->with('message', 'Dress created successfully');
+        return to_route('dress.index')->with('message', 'Dress created successfully');
     }
 
     /**

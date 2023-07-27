@@ -15,7 +15,7 @@
     @endif
 
     <div class="container pt-3">
-        <form action="{{ route('dresses.store') }}" method="post">
+        <form action="{{ route('dress.store') }}" method="post">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
