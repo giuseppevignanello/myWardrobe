@@ -50,7 +50,11 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="brand" class="form-label">Brand</label>
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <label for="brand" class="form-label">Brand</label>
+                    <a class="btn bg_blue" href="{{ route('brand.create') }}" role="button">Add new Brand</a>
+                </div>
+
                 <input type="text" name="brand" id="brand" class="form-control" value="{{ old('brand') }}">
                 <small class="text-muted">Min 3, max 256 characters</small>
             </div>
