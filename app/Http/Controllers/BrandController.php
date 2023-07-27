@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Http\Requests\StoreBrandRequest;
 use App\Http\Requests\UpdateBrandRequest;
+use App\Models\Category;
 
 class BrandController extends Controller
 {
@@ -27,6 +28,8 @@ class BrandController extends Controller
      */
     public function create()
     {
+
+        // countries list
 
         $countries = [
             'United States',
@@ -55,7 +58,10 @@ class BrandController extends Controller
             'Egypt',
         ];
 
-        return view('brand.create', compact('countries'));
+        // take categories
+        $categories = Category::all();
+
+        return view('brand.create', compact('countries', 'categories'));
     }
 
     /**
@@ -67,7 +73,15 @@ class BrandController extends Controller
     public function store(StoreBrandRequest $request)
     {
         $val_data = $request->validated();
-        Brand::create($val_data);
+
+        $new_brand = Brand::create($val_data);
+
+        // add categories
+
+        if ($request->has('categories')) {
+            $new_brand->categories()->attach($request->categories);
+        }
+
         return to_route('dress.create')->with('message', 'Dress created successfully');
     }
 

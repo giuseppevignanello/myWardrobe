@@ -39,6 +39,18 @@
 
                 </select>
             </div>
+            <div class="form-group">
+                <p>Select at least one category</p>
+                @foreach ($categories as $category)
+                    <div class="form-check @error('categories') is-invalid @enderror">
+                        <label class="form-check-label">
+                            <input type="checkbox" name="categories[]" value="{{ $category->id }}" class="form-check-input"
+                                {{ in_array($category->id, old('categories', [])) ? 'checked' : '' }}>
+                            {{ $category->name }}
+                        </label>
+                    </div>
+                @endforeach
+            </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
                 <textarea class="form-control" name="description" id="description" rows="3"></textarea>
