@@ -2,7 +2,10 @@
 
 @section('content')
     <div class="container">
-        <div class="table-responsive mt-5">
+        <div class="mt-4">
+            <a class="btn bg_table" href="{{ route('dashboard') }}" role="button"><i class="fa-solid fa-arrow-left"></i></a>
+        </div>
+        <div class="table-responsive mt-3">
             <table
                 class="table table-striped
         table-hover	

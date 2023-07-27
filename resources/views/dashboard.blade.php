@@ -2,24 +2,15 @@
 
 @section('content')
     <div class="container">
-        <h2 class="fs-4 text-secondary my-4">
-            {{ __('Dashboard') }}
-        </h2>
-        <div class="row justify-content-center">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header">{{ __('User Dashboard') }}</div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {{ __('You are logged in!') }}
-                    </div>
-                </div>
+        <div class="mt-5 d-flex justify-content-around">
+            <div>
+                <a class="btn bg_table" href="{{ route('dress.index') }}" role="button">Your dresses</a>
+            </div>
+            <div>
+                <a class="btn bg_table" href="#" role="button">Button</a>
+            </div>
+            <div>
+                <a class="btn bg_table" href="#" role="button">Button</a>
             </div>
         </div>
     </div>
