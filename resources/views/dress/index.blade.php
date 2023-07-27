@@ -2,8 +2,14 @@
 
 @section('content')
     <div class="container">
-        <div class="mt-4">
-            <a class="btn bg_table" href="{{ route('dashboard') }}" role="button"><i class="fa-solid fa-arrow-left"></i></a>
+        <div class="d-flex align-items-center gap-2">
+            <div class="mt-4">
+                <a class="btn bg_table" href="{{ route('dashboard') }}" role="button"><i
+                        class="fa-solid fa-arrow-left"></i></a>
+            </div>
+            <div class="mt-4">
+                <a class="btn bg_blue" href="{{ route('dress.create') }}" role="button">Add New Clothes</a>
+            </div>
         </div>
         <div class="table-responsive mt-3">
             <table
