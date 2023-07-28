@@ -7,7 +7,7 @@
                 <a class="btn bg_table" href="{{ route('dress.index') }}" role="button">Your dresses</a>
             </div>
             <div>
-                <a class="btn bg_table" href="#" role="button">Brands</a>
+                <a class="btn bg_table" href="{{ route('brand.index') }}" role="button">Brands</a>
             </div>
             <div>
                 <a class="btn bg_table" href="#" role="button">Your Outfits</a>

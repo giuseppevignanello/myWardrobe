@@ -8,3 +8,23 @@
 .bg_blue {
     background-color: #889cff
 }
+
+.jumbotron {
+    background-image: url('/public/img/shopping.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    position: relative;
+    height: 200px;
+    width: 100%;
+}
+
+.brand_card {
+    border: 1px solid #d7d7d7;
+    padding: 0 0.5rem 0 0;
+    border-radius: 10px;
+}
+
+.logo img {
+    border-radius: 10px;
+}
