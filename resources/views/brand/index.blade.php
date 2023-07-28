@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="p-3 mb-2 jumbotron">
-
-
+    <div class="p-3 mb-2 jumbotron d-flex align-items-end justify-content-end">
+        <button class="btn btn-light" type="button"> <a class="text-decoration-none text-black"
+                href="{{ route('brand.create') }}"> Add a new
+                Brand</a>
+        </button>
     </div>
     <div class="container">
         @foreach ($brands as $brand)
