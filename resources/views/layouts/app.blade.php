@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app layout">
 
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -87,7 +87,7 @@
             </div>
         </nav>
 
-        <main class="">
+        <main class="layout">
             @yield('content')
         </main>
     </div>

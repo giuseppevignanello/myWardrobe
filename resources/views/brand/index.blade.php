@@ -8,6 +8,8 @@
         </button>
     </div>
     <div class="container">
+        <a name="" id="" class="btn bg_secondary text-white" href="{{ route('dashboard') }}" role="button"><i
+                class="fa-solid fa-arrow-left"></i></a>
         @foreach ($brands as $brand)
             <div class="mt-4 ">
                 <div class=" my-2 d-flex gap-4 brand_card">
