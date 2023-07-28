@@ -2,7 +2,11 @@
 
 @section('content')
     <div class="container">
-        <div class="mt-5 d-flex flex-column flex-lg-row justify-content-center align-items-center gap-4">
+        <div class="my-3">
+            <h1 class="text-white display-5 fw-bold"> Hi, {{ $user->name }} </h1>
+            <p class="col-md-8 fs-4 text-white">Discover your look</p>
+        </div>
+        <div class="mt-3 d-flex flex-column flex-lg-row justify-content-center align-items-center gap-4">
             <div class="card">
                 <img class="card-img-top" height="250px" width="250px" style="object-fit: contain"
                     src={{ asset('img/clothes.jpg') }} alt="dress">

@@ -87,9 +87,11 @@
             </div>
         </nav>
 
-        <main class="layout">
+        <main class="app_main">
             @yield('content')
         </main>
+
+        @include('partials.footer')
     </div>
 </body>
 
