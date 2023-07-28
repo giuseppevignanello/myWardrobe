@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Http\Requests\StoreBrandRequest;
 use App\Http\Requests\UpdateBrandRequest;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class BrandController extends Controller
 {
@@ -74,6 +75,14 @@ class BrandController extends Controller
     {
         $val_data = $request->validated();
 
+        // add logo image
+        if ($request->hasFile('logo')) {
+            $img_path = Storage::put('uploads/', $request->logo);
+
+            $val_data['logo'] = $img_path;
+        }
+
+
         $new_brand = Brand::create($val_data);
 
         // add categories
@@ -81,6 +90,7 @@ class BrandController extends Controller
         if ($request->has('categories')) {
             $new_brand->categories()->attach($request->categories);
         }
+
 
         return to_route('dress.create')->with('message', 'Dress created successfully');
     }

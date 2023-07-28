@@ -15,7 +15,7 @@
     @endif
 
     <div class="container pt-3">
-        <form action="{{ route('dress.store') }}" method="post">
+        <form action="{{ route('dress.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
@@ -106,7 +106,7 @@
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
-                <input type="text" name="image" id="image" class="form-control" value="{{ old('image') }}">
+                <input type="file" name="image" id="image" class="form-control" value="{{ old('image') }}">
                 <small class="text-muted"></small>
             </div>
             <div class="mb-3">

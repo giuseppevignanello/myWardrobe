@@ -33,7 +33,7 @@
                     @forelse ($dresses as $dress)
                         <tr class="table-primary">
                             <td>{{ $dress->name }}</td>
-                            <td>{{ $dress->image }}</td>
+                            <td> <img src="{{ asset('storage/' . $dress->image) }}" alt="image" height="80px"></td>
                             <td> {{ $dress->brand }}</td>
                             <td> {{ $dress->type }}</td>
                             <td> {{ $dress->season }}</td>

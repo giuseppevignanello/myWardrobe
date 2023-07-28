@@ -13,7 +13,7 @@
 
     <div class="container pt-3">
         <h3>Create new Brand</h3>
-        <form action="{{ route('brand.store') }}" method="post">
+        <form action="{{ route('brand.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
@@ -27,7 +27,7 @@
             {{-- Change: add storage --}}
             <div class="mb-3">
                 <label for="logo" class="form-label">Logo</label>
-                <input type="text" class="form-control" name="logo" id="logo" aria-describedby="helpId"
+                <input type="file" class="form-control" name="logo" id="logo" aria-describedby="helpId"
                     placeholder="logo">
             </div>
             <div class="mb-3">
