@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Dress;
 use App\Http\Requests\StoreDressRequest;
 use App\Http\Requests\UpdateDressRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
 class DressController extends Controller
@@ -17,7 +18,10 @@ class DressController extends Controller
     public function index()
     {
 
-        $dresses = Dress::all();
+        $user = Auth::user();
+
+        $dresses = $user->dresses;
+
         return view('dress.index', compact('dresses'));
     }
 
@@ -28,7 +32,10 @@ class DressController extends Controller
      */
     public function create()
     {
-        return view('dress.create');
+        $user = Auth::user();
+
+
+        return view('dress.create', compact('user'));
     }
 
     /**
@@ -39,8 +46,9 @@ class DressController extends Controller
      */
     public function store(StoreDressRequest $request)
     {
-
+        $user = Auth::user();
         $val_data = $request->validated();
+        $val_data['user_id'] = $user->id;
         Dress::create($val_data);
 
         return to_route('dress.index')->with('message', 'Dress created successfully');
