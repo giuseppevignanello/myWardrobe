@@ -80,3 +80,135 @@ body {
 }
 
 //   end region welcome
+
+
+// region wardrobe
+
+
+.wardrobe {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    background-color: #5c3b11;
+    border: 10px solid #b0712d;
+    box-shadow: inset -5px 5px 25px rgba(0, 0, 0, 0.5);
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+    cursor: pointer;
+    margin: 4rem auto;
+}
+
+.wardrobe:hover .door {
+    transform: rotateY(-160deg);
+}
+
+.wardrobe:hover .door:before {
+    display: none;
+}
+
+.wardrobe:hover .second-door {
+    transform: rotateY(160deg);
+}
+
+.wardrobe:hover .second-door:before {
+    display: none;
+}
+
+.wardrobe:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    background-color: #8a5924;
+    top: 260px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 180px 0 #8a5924;
+    left: -10px;
+}
+
+.wardrobe:after {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 220px;
+    border-bottom: 15px solid transparent;
+    border-top: 15px solid #8a5924;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    top: -25px;
+    left: -18px;
+}
+
+.front {
+    position: relative;
+    z-index: 1;
+}
+
+.door {
+    position: absolute;
+    width: 105px;
+    height: 230px;
+    background-color: #8a5924;
+    top: 0;
+    transition: .5s;
+    z-index: 5;
+}
+
+.second-door {
+    position: absolute;
+    width: 90px;
+    height: 230px;
+    background-color: #8a5924;
+    top: 0;
+    transition: .5s;
+    z-index: 5;
+}
+
+.door {
+    transform-origin: left;
+    box-shadow: inset 1px 0 10px rgba(0, 0, 0, 0.3);
+    left: 0;
+}
+
+.door:before,
+.second-door:before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 5px;
+    top: 115px;
+}
+
+.door:before {
+    left: 78px;
+}
+
+.second-door {
+    left: 90px;
+    transform-origin: right;
+    box-shadow: inset 1px 0 rgba(0, 0, 0, 0.3), inset -1px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.second-door:before {
+    left: 10px;
+}
+
+.shadow {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 220px;
+    height: 30px;
+    border-radius: 50%;
+    top: 260px;
+    left: -10px;
+    z-index: -1;
+}
+
+// end region wardrobe
+
+.dress img {
+    height: 50px;
+    width: 50px;
+}

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    {{-- <div class="container">
         <div class="d-flex align-items-center gap-2">
             <div class="mt-4">
                 <a class="btn bg_table" href="{{ route('dashboard') }}" role="button"><i
@@ -52,7 +52,7 @@
                                     </button>
                                 </div>
 
-                                {{-- Modal --}}
+                              
                                 <div class="modal fade" id="deleteModal-{{ $dress->id }}" tabindex="-1"
                                     data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
                                     aria-labelledby="modalTitleId" aria-hidden="true">
@@ -89,8 +89,37 @@
                 </tfoot>
             </table>
         </div>
-    </div>
-    .<div class="container">
+    </div> --}}
+    <div class="container mt-4">
+        <div class="d-flex align-items-center gap-2">
+            <div class="mt-4">
+                <a class="btn bg-light" href="{{ route('dashboard') }}" role="button"><i
+                        class="fa-solid fa-arrow-left"></i></a>
+            </div>
+            <div class="mt-4">
+                <a class="btn bg_secondary text-white" href="{{ route('dress.create') }}" role="button">Add New Clothes</a>
+            </div>
+        </div>
 
+        <div class="wardrobe">
+            <div class="front">
+                <div class="door"></div>
+                <div class="second-door"></div>
+            </div>
+            <ul class="list-unstyled">
+                @forelse ($dresses as $dress)
+                    <li>
+                        <div class="dress d-flex align-items-center gap-2">
+                            <img class="rounded-circle ms-1 mb-1" src="{{ asset('storage/' . $dress->image) }}"
+                                alt="image">
+                            <p class="text-white"> {{ $dress->name }}</p>
+                        </div>
+                    </li>
+                @empty
+                @endforelse
+
+            </ul>
+            <div class="shadow"></div>
+        </div>
     </div>
 @endsection
