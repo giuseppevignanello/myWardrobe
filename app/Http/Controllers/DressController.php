@@ -84,7 +84,10 @@ class DressController extends Controller
      */
     public function edit(Dress $dress)
     {
-        //
+        $user = Auth::user();
+
+
+        return view('dress.edit', compact('user', 'dress'));
     }
 
     /**
@@ -96,7 +99,22 @@ class DressController extends Controller
      */
     public function update(UpdateDressRequest $request, Dress $dress)
     {
-        //
+        $user = Auth::user();
+        $val_data = $request->validated();
+
+        // add user id
+        $val_data['user_id'] = $user->id;
+
+        // add dress image
+        if ($request->hasFile('image')) {
+            $img_path = Storage::put('uploads/', $request->image);
+
+            $val_data['image'] = $img_path;
+        }
+
+        $dress->update($val_data);
+
+        return to_route('dress.index')->with('message', 'Dress updated successfully');
     }
 
     /**
@@ -108,6 +126,6 @@ class DressController extends Controller
     public function destroy(Dress $dress)
     {
         $dress->delete();
-        return to_route('home')->with('message', 'Dress deleted');
+        return to_route('dress.index')->with('message', 'Dress deleted');
     }
 }

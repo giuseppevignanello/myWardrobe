@@ -27,6 +27,7 @@
                         <th>Season</th>
                         <th>Size</th>
                         <th>Purchase Date</th>
+                        <th>Buttons</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -39,6 +40,46 @@
                             <td> {{ $dress->season }}</td>
                             <td> {{ $dress->size }}</td>
                             <td> {{ $dress->purchase_date }}</td>
+                            <td class="d-flex mt-3 gap-2">
+                                <div>
+                                    <a class="btn btn-primary" href="dress/{{ $dress->id }}/edit" role="button"><i
+                                            class="fa-solid fa-pen-to-square"></i></a>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#deleteModal-{{ $dress->id }}">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+
+                                {{-- Modal --}}
+                                <div class="modal fade" id="deleteModal-{{ $dress->id }}" tabindex="-1"
+                                    data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+                                    aria-labelledby="modalTitleId" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+                                        role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalTitleId">Delete dress</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure you want to delete this dresss?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">No</button>
+                                                <form action="{{ route('dress.destroy', $dress->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                     @empty
                     @endforelse
