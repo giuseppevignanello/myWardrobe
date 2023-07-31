@@ -87,15 +87,15 @@ body {
 
 .wardrobe {
     position: relative;
-    width: 200px;
-    height: 250px;
+    width: 300px;
+    height: 310px;
     background-color: #5c3b11;
     border: 10px solid #b0712d;
     box-shadow: inset -5px 5px 25px rgba(0, 0, 0, 0.5);
     transform-style: preserve-3d;
     transform: perspective(2500px);
     cursor: pointer;
-    margin: 4rem auto;
+    margin: 2rem auto;
 }
 
 .wardrobe:hover .door {
@@ -120,17 +120,17 @@ body {
     width: 20px;
     height: 10px;
     background-color: #8a5924;
-    top: 260px;
+    top: 305px;
     border-radius: 0 0 5px 5px;
     box-shadow: 180px 0 #8a5924;
-    left: -10px;
+    left: 30px;
 }
 
 .wardrobe:after {
     content: "";
     position: absolute;
     height: 0;
-    width: 220px;
+    width: 313px;
     border-bottom: 15px solid transparent;
     border-top: 15px solid #8a5924;
     border-right: 5px solid transparent;
@@ -146,8 +146,8 @@ body {
 
 .door {
     position: absolute;
-    width: 105px;
-    height: 230px;
+    width: 140px;
+    height: 290px;
     background-color: #8a5924;
     top: 0;
     transition: .5s;
@@ -156,8 +156,8 @@ body {
 
 .second-door {
     position: absolute;
-    width: 90px;
-    height: 230px;
+    width: 140px;
+    height: 290px;
     background-color: #8a5924;
     top: 0;
     transition: .5s;
@@ -182,11 +182,11 @@ body {
 }
 
 .door:before {
-    left: 78px;
+    left: 120px;
 }
 
 .second-door {
-    left: 90px;
+    left: 140px;
     transform-origin: right;
     box-shadow: inset 1px 0 rgba(0, 0, 0, 0.3), inset -1px 0 10px rgba(0, 0, 0, 0.3);
 }
@@ -198,11 +198,11 @@ body {
 .shadow {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.3);
-    width: 220px;
+    width: 290px;
     height: 30px;
     border-radius: 50%;
-    top: 260px;
-    left: -10px;
+    top: 313px;
+    left: -5px;
     z-index: -1;
 }
 
