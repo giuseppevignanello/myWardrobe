@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Dress;
 use App\Http\Requests\StoreDressRequest;
 use App\Http\Requests\UpdateDressRequest;
+use App\Models\Brand;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
@@ -34,9 +35,10 @@ class DressController extends Controller
     public function create()
     {
         $user = Auth::user();
+        $brands = Brand::all();
 
 
-        return view('dress.create', compact('user'));
+        return view('dress.create', compact('user', 'brands'));
     }
 
     /**

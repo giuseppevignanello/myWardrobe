@@ -42,13 +42,6 @@ body {
     border-radius: 10px;
 }
 
-.app_footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
-
 // region welcome
 
 .welcome-container {
@@ -146,8 +139,8 @@ body {
 
 .door {
     position: absolute;
-    width: 140px;
-    height: 290px;
+    width: 141px;
+    height: 291px;
     background-color: #8a5924;
     top: 0;
     transition: .5s;
@@ -157,7 +150,7 @@ body {
 .second-door {
     position: absolute;
     width: 140px;
-    height: 290px;
+    height: 291px;
     background-color: #8a5924;
     top: 0;
     transition: .5s;
@@ -186,13 +179,13 @@ body {
 }
 
 .second-door {
-    left: 140px;
+    left: 141px;
     transform-origin: right;
     box-shadow: inset 1px 0 rgba(0, 0, 0, 0.3), inset -1px 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .second-door:before {
-    left: 10px;
+    left: 15px;
 }
 
 .shadow {
