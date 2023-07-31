@@ -15,4 +15,9 @@ class Dress extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function outfits()
+    {
+        return $this->belongsToMany(Outfit::class, 'outfit_dress', 'dress_id', 'outfit_id');
+    }
 }

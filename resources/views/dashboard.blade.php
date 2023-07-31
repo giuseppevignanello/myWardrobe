@@ -27,7 +27,8 @@
                 <img class="card-img-top" height="250px" width="250px" style="object-fit: contain"
                     src={{ asset('img/outfit.webp') }} alt="dress">
                 <div class="card-body">
-                    <a class="btn bg_secondary text-white btn-lg" href="#" role="button">Your Outfits</a>
+                    <a class="btn bg_secondary text-white btn-lg" href="{{ route('outfit.index') }}" role="button">Your
+                        Outfits</a>
                 </div>
             </div>
         </div>
