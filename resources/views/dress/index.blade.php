@@ -28,8 +28,8 @@
                             </div>
                             <div class="d-flex gap-2 p-1">
                                 <div>
-                                    <a class="btn btn-primary btn-sm" href="dress/{{ $dress->id }}/edit"
-                                        role="button"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a class="btn btn-primary btn-sm" href="dress/{{ $dress->id }}" role="button"><i
+                                            class="fa-solid fa-eye"></i></a>
                                 </div>
                                 <div>
                                     <button type="submit" class="btn btn-danger btn-sm" data-bs-toggle="modal"

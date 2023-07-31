@@ -6,6 +6,7 @@ use App\Models\Dress;
 use App\Http\Requests\StoreDressRequest;
 use App\Http\Requests\UpdateDressRequest;
 use App\Models\Brand;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
@@ -75,7 +76,9 @@ class DressController extends Controller
      */
     public function show(Dress $dress)
     {
-        //
+        $user = Auth::user();
+
+        return view('dress.show', compact('user', 'dress'));
     }
 
     /**
