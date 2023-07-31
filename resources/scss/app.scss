@@ -240,11 +240,16 @@ body {
 
 // #region outfit
 
+.outfit_create_container {
+    margin-top: 7rem;
+}
+
 .outfit_create_card {
-    height: 260px;
+    height: 200px;
 
     img {
         max-height: 100%;
+        object-fit: cover;
     }
 }
 

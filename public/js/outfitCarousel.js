@@ -2,6 +2,7 @@ let active = 0;
 const prev = document.getElementById("prev");
 const next = document.getElementById("next");
 const dresses = document.querySelectorAll(".outfit_dress");
+const outfit = [];
 
 function showActiveDress() {
     dresses.forEach((dress, index) => {
