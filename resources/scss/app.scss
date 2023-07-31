@@ -237,3 +237,27 @@ body {
 }
 
 // end region footer
+
+// #region outfit
+
+.outfit_create_card {
+    height: 260px;
+
+    img {
+        max-height: 100%;
+    }
+}
+
+// #endregion outfit
+
+// #region buttons
+.buttons {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+// #endregion button
