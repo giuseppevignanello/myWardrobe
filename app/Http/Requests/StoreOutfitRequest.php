@@ -13,7 +13,7 @@ class StoreOutfitRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class StoreOutfitRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'occasion' => 'required',
+            'season' => 'required',
+            'outfit_data' => 'required'
         ];
     }
 }

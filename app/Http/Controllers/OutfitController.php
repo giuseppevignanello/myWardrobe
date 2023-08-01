@@ -44,7 +44,24 @@ class OutfitController extends Controller
      */
     public function store(StoreOutfitRequest $request)
     {
-        //
+        $user = Auth::user();
+        $val_data = $request->validated();
+
+        // creare the outfit with validated data
+        $outfit = new Outfit();
+        $outfit->name = $val_data['name'];
+        $outfit->occasion = $val_data['occasion'];
+        $outfit->season = $val_data['season'];
+        $outfit->user_id = $user->id;
+        $outfit->save();
+
+
+        $selectedDresses = json_decode($val_data['outfit_data']);
+
+
+        $outfit->dresses()->attach($selectedDresses);
+
+        return view('outifit.index')->with('message', 'Outfit created successfully');
     }
 
     /**

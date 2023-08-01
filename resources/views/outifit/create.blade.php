@@ -2,10 +2,14 @@
 
 @section('content')
     <div class="container position-relative outfit_create_container">
-        <div class="mt-2 ms-2">
+
+        {{-- back button --}}
+        <div class="mb-1">
             <a class="btn btn-sm bg-light" href="{{ route('outfit.index') }}" role="button"><i
                     class="fa-solid fa-arrow-left"></i></a>
         </div>
+
+
         <div class="wardrobe">
             <div class="front">
                 <div class="door"></div>
@@ -13,7 +17,7 @@
             </div>
             <ul class="list-unstyled d-flex justify-content-center">
                 @forelse ($dresses as $dress)
-                    <li class="outfit_dress d-none">
+                    <li id={{ $dress->id }} class="outfit_dress d-none">
                         <div class="card outfit_create_card">
                             <img class="" src="{{ asset('storage/' . $dress->image) }}" alt={{ $dress->name }}>
                             <div class="card-body text-white">
@@ -37,8 +41,36 @@
         </div>
 
     </div>
-    <ul id="outfit" class="d-flex list-unstyled">
+    <div class="container">
+        <ul id="outfit" class="d-flex list-unstyled mt-5 justify-content-center">
 
-    </ul>
+        </ul>
+        {{-- form to send data --}}
+        <form action="{{ route('outfit.store') }}" method="post">
+            @csrf
+            <input type="hidden" name="outfit_data" id="outfitDataInput">
+            <div class="mb-1 mt-5">
+                <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId"
+                    placeholder="Add outfit name">
+            </div>
+            <div class="mb-1">
+                <input type="text" class="form-control" name="occasion" id="occasion" aria-describedby="helpId"
+                    placeholder="Add outfit occasion">
+            </div>
+            <div class="mb-1">
+                <small class="text-white">Select Season</small>
+                <select class="form-select" name="season" id="season">
+                    <option selected></option>
+                    <option value="">Autumn</option>
+                    <option value="">Winter</option>
+                    <option value="">Spring</option>
+                    <option value="">Summer</option>
+                </select>
+            </div>
+            <button type="submit" class="btn bg_secondary text-white">Save this outfit</button>
+        </form>
+
+        {{-- end form --}}
+    </div>
     <script src="{{ asset('js/outfitCarousel.js') }}"></script>
 @endsection

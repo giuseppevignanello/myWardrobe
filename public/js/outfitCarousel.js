@@ -5,7 +5,6 @@ const dresses = document.querySelectorAll(".outfit_dress");
 const outfitElement = document.getElementById("outfit");
 const outfit = [];
 // const add = document.getElementById("add");
-const dressesArray = Array.prototype.slice.call(dresses);
 function showActiveDress() {
     dresses.forEach((dress, index) => {
         if (index === active) {
@@ -43,13 +42,9 @@ function toggleOutfit(dress) {
     const index = outfit.indexOf(dressName);
 
     if (index === -1) {
-        // Il vestito non è presente nell'outfit, aggiungilo
         outfit.push(dressName);
-        dress.classList.add("selected");
     } else {
-        // Il vestito è già presente nell'outfit, rimuovilo
         outfit.splice(index, 1);
-        dress.classList.remove("selected");
     }
 
     updateOutfitList();
