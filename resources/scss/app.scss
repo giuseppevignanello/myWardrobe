@@ -253,6 +253,19 @@ body {
     }
 }
 
+#outfit {
+    margin-left: 1rem;
+
+    li {
+        img {
+            max-width: 100px;
+            max-height: 100px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+    }
+}
+
 // #endregion outfit
 
 // #region buttons

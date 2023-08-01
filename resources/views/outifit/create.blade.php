@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="container position-relative outfit_create_container">
+        <div class="mt-2 ms-2">
+            <a class="btn btn-sm bg-light" href="{{ route('outfit.index') }}" role="button"><i
+                    class="fa-solid fa-arrow-left"></i></a>
+        </div>
         <div class="wardrobe">
             <div class="front">
                 <div class="door"></div>
@@ -13,11 +17,10 @@
                         <div class="card outfit_create_card">
                             <img class="" src="{{ asset('storage/' . $dress->image) }}" alt={{ $dress->name }}>
                             <div class="card-body text-white">
-                                <h4 class="card-title">{{ $dress->name }}</h6>
-                                    <div class="d-flex gap-2 align-items-center">
-                                        <div class="card-text">{{ $dress->brand }}</div>
-                                        <button type="button" class="btn btn-sm bg_secondary text-white">Add</button>
-                                    </div>
+                                <h6 class="card-title">{{ $dress->name }}</h6>
+                                <div class="d-flex gap-2 align-items-center">
+                                    <div class="card-text">{{ $dress->brand }}</div>
+                                </div>
                             </div>
                         </div>
                     </li>
@@ -34,7 +37,7 @@
         </div>
 
     </div>
-    <ul id="outfit">
+    <ul id="outfit" class="d-flex list-unstyled">
 
     </ul>
     <script src="{{ asset('js/outfitCarousel.js') }}"></script>
