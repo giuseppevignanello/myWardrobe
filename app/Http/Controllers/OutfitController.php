@@ -25,7 +25,7 @@ class OutfitController extends Controller
         // take user's outfit
         $outfits = Outfit::where('user_id', $user->id)->get();
 
-        return view('outifit.index', compact('user', 'outfits'));
+        return view('outfit.index', compact('user', 'outfits'));
     }
 
     /**
@@ -38,10 +38,9 @@ class OutfitController extends Controller
         $user = Auth::user();
 
         //take dresses for the outfit
-        $dresses = Dress::orderByDesc('id')->get();
+        $dresses = Dress::where('user_id', $user->id)->get();
 
-
-        return view('outifit.create', compact('user', 'dresses'));
+        return view('outfit.create', compact('user', 'dresses'));
     }
 
     /**
@@ -65,7 +64,7 @@ class OutfitController extends Controller
 
         $outfits = Outfit::where('user_id', $user->id)->get();
 
-        return view('outifit.index', compact('outfits'))->with('message', 'Outfit created successfully');
+        return view('outfit.index', compact('outfits'))->with('message', 'Outfit created successfully');
     }
 
     /**
@@ -76,7 +75,8 @@ class OutfitController extends Controller
      */
     public function show(Outfit $outfit)
     {
-        //
+        $user = Auth::user();
+        return view('outfit.show', compact('user', 'outfit'));
     }
 
     /**

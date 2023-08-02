@@ -8,9 +8,6 @@
             <a class="btn btn-sm bg_secondary text-white" href="{{ $dress->id }}/edit"> <i
                     class="fa-solid fa-pen-to-square"></i> </a>
         </div>
-        <div>
-
-        </div>
     </div>
     <div class="show_card card bg_opacity text-white">
         <img class="card-img-top show_img" src="{{ asset('storage/' . $dress->image) }}" alt="Title">
