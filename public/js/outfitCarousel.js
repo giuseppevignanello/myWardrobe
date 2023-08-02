@@ -61,7 +61,7 @@ dresses.forEach((dress) => {
             // Aggiungi l'outfit all'array dei selezionati
             selectedDresses.push(dressId);
 
-            // Aggiungi l'input hidden al form solo se l'outfit non è già presente
+            // Adding input field
             outfitData.innerHTML += ` <input type="hidden" name="dresses[]" value="${dressId}">`;
 
             console.log(outfitData);

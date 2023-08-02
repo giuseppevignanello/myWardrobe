@@ -63,7 +63,9 @@ class OutfitController extends Controller
             $new_outfit->dresses()->attach($request->dresses);
         }
 
-        return view('outifit.index')->with('message', 'Outfit created successfully');
+        $outfits = Outfit::where('user_id', $user->id)->get();
+
+        return view('outifit.index', compact('outfits'))->with('message', 'Outfit created successfully');
     }
 
     /**
