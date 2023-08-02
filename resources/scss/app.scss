@@ -14,7 +14,7 @@ body {
 }
 
 .bg_secondary {
-    background-color: #0b5d35aa;
+    background-color: rgb(13 78 46 / 53%);
 }
 
 .app_main {
@@ -265,6 +265,18 @@ body {
         }
     }
 }
+
+.outfit_index_card {
+    border: 1px solid black;
+}
+
+.index_outfit_image {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black
+}
+
+
 
 // #endregion outfit
 
