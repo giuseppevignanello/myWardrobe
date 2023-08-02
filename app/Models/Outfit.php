@@ -10,7 +10,7 @@ class Outfit extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'occasion', 'season'
+        'name', 'occasion', 'season', 'user_id'
     ];
 
     public function dresses()

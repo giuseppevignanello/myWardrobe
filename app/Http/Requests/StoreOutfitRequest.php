@@ -27,7 +27,7 @@ class StoreOutfitRequest extends FormRequest
             'name' => 'required',
             'occasion' => 'required',
             'season' => 'required',
-            'outfit_data' => 'required'
+            'user_id' => 'nullable'
         ];
     }
 }

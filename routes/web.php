@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('dress', DressController::class);
     Route::resource('brand', BrandController::class);
     Route::resource('outfit', OutfitController::class);
+    Route::post('/outfit', [OutfitController::class, 'store'])->name('outfit.storeP');
 });
 
 require __DIR__ . '/auth.php';

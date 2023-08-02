@@ -17,9 +17,15 @@ class OutfitController extends Controller
      */
     public function index()
     {
+
+        // user authentication
+
         $user = Auth::user();
 
-        return view('outifit.index', compact('user'));
+        // take user's outfit
+        $outfits = Outfit::where('user_id', $user->id)->get();
+
+        return view('outifit.index', compact('user', 'outfits'));
     }
 
     /**
@@ -30,6 +36,8 @@ class OutfitController extends Controller
     public function create()
     {
         $user = Auth::user();
+
+        //take dresses for the outfit
         $dresses = Dress::orderByDesc('id')->get();
 
 
@@ -48,18 +56,12 @@ class OutfitController extends Controller
         $val_data = $request->validated();
 
         // creare the outfit with validated data
-        $outfit = new Outfit();
-        $outfit->name = $val_data['name'];
-        $outfit->occasion = $val_data['occasion'];
-        $outfit->season = $val_data['season'];
-        $outfit->user_id = $user->id;
-        $outfit->save();
+        $new_outfit = Outfit::create($val_data);
 
-
-        $selectedDresses = json_decode($val_data['outfit_data']);
-
-
-        $outfit->dresses()->attach($selectedDresses);
+        //adding dresses to the outfit
+        if ($request->has('dresses')) {
+            $new_outfit->dresses()->attach($request->dresses);
+        }
 
         return view('outifit.index')->with('message', 'Outfit created successfully');
     }

@@ -4,6 +4,7 @@ const next = document.getElementById("next");
 const dresses = document.querySelectorAll(".outfit_dress");
 const outfitElement = document.getElementById("outfit");
 const outfit = [];
+const outfitData = document.getElementById("outfitData");
 // const add = document.getElementById("add");
 function showActiveDress() {
     dresses.forEach((dress, index) => {
@@ -52,6 +53,10 @@ function toggleOutfit(dress) {
 
 dresses.forEach((dress) => {
     dress.addEventListener("click", function () {
+        outfitData.innerHTML += ` <input type="hidden" name="dresses[]" value="${dress.getAttribute(
+            "id"
+        )}">`;
+        console.log(outfitData);
         toggleOutfit(dress);
     });
 });

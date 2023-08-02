@@ -46,25 +46,28 @@
 
         </ul>
         {{-- form to send data --}}
-        <form action="{{ route('outfit.store') }}" method="post">
+        <form method="post" action="{{ route('outfit.storeP') }}">
             @csrf
-            <input type="hidden" name="outfit_data" id="outfitDataInput">
+            <input type="hidden" name="user_id" value="{{ $user->id }}">
+            <div id="outfitData">
+
+            </div>
             <div class="mb-1 mt-5">
                 <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId"
-                    placeholder="Add outfit name">
+                    placeholder="Add outfit name" value="{{ old('name') }}">
             </div>
             <div class="mb-1">
                 <input type="text" class="form-control" name="occasion" id="occasion" aria-describedby="helpId"
-                    placeholder="Add outfit occasion">
+                    placeholder="Add outfit occasion" value="{{ old('input') }}">
             </div>
             <div class="mb-1">
                 <small class="text-white">Select Season</small>
-                <select class="form-select" name="season" id="season">
+                <select class="form-select" name="season" id="season" value="{{ old('season') }}">
                     <option selected></option>
-                    <option value="">Autumn</option>
-                    <option value="">Winter</option>
-                    <option value="">Spring</option>
-                    <option value="">Summer</option>
+                    <option value="autumn">Autumn</option>
+                    <option value="winter">Winter</option>
+                    <option value="spring">Spring</option>
+                    <option value="summer">Summer</option>
                 </select>
             </div>
             <button type="submit" class="btn bg_secondary text-white">Save this outfit</button>
