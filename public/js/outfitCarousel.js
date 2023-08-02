@@ -3,6 +3,7 @@ const prev = document.getElementById("prev");
 const next = document.getElementById("next");
 const dresses = document.querySelectorAll(".outfit_dress");
 const outfitElement = document.getElementById("outfit");
+let selectedDresses = [];
 const outfit = [];
 const outfitData = document.getElementById("outfitData");
 // const add = document.getElementById("add");
@@ -53,11 +54,19 @@ function toggleOutfit(dress) {
 
 dresses.forEach((dress) => {
     dress.addEventListener("click", function () {
-        outfitData.innerHTML += ` <input type="hidden" name="dresses[]" value="${dress.getAttribute(
-            "id"
-        )}">`;
-        console.log(outfitData);
-        toggleOutfit(dress);
+        const dressId = dress.getAttribute("id");
+
+        // Check if dress is already in the array
+        if (!selectedDresses.includes(dressId)) {
+            // Aggiungi l'outfit all'array dei selezionati
+            selectedDresses.push(dressId);
+
+            // Aggiungi l'input hidden al form solo se l'outfit non è già presente
+            outfitData.innerHTML += ` <input type="hidden" name="dresses[]" value="${dressId}">`;
+
+            console.log(outfitData);
+            toggleOutfit(dress);
+        }
     });
 });
 
