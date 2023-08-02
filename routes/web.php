@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('brand', BrandController::class);
     Route::resource('outfit', OutfitController::class);
     Route::post('/outfit', [OutfitController::class, 'store'])->name('outfit.storeP');
+    Route::post('/outfit', [OutfitController::class, 'update'])->name('outfit.updateP');
 });
 
 require __DIR__ . '/auth.php';

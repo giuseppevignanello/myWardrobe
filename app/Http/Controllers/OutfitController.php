@@ -87,7 +87,9 @@ class OutfitController extends Controller
      */
     public function edit(Outfit $outfit)
     {
-        //
+        $user = Auth::user();
+        $dresses = Dress::where('user_id', $user->id)->get();
+        return view('outfit.edit', compact('user', 'outfit', 'dresses'));
     }
 
     /**
@@ -99,7 +101,23 @@ class OutfitController extends Controller
      */
     public function update(UpdateOutfitRequest $request, Outfit $outfit)
     {
-        //
+        $user = Auth::user();
+        $val_data = $request->validated();
+
+        // update outfit data
+        $outfit->update($val_data);
+
+        // update outfit dresses
+        if ($request->has('dresses')) {
+            $outfit->dresses()->sync($request->dresses);
+        } else {
+            $outfit->dresses()->detach();
+        }
+
+        // get updated outfit to show them on index
+        $outfits = Outfit::where('user_id', $user->id)->get();
+
+        return view('outfit.index', compact('outfits'))->with('message', 'Outfit updated successfully');
     }
 
     /**

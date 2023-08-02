@@ -13,7 +13,7 @@ class UpdateOutfitRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class UpdateOutfitRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'occasion' => 'required',
+            'season' => 'required',
+            'user_id' => 'nullable'
         ];
     }
 }
