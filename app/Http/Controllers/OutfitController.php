@@ -128,6 +128,7 @@ class OutfitController extends Controller
      */
     public function destroy(Outfit $outfit)
     {
-        //
+        $outfit->delete();
+        return to_route('outfit.index')->with('message', 'Outfit deleted');
     }
 }
