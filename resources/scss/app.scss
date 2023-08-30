@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-    background-color: #96734c;
+    background-color: #ffc18c;
 }
 
 .layout {
@@ -48,7 +48,7 @@ body {
     border: 1px solid #d7d7d7;
     padding: 0 0.5rem 0 0;
     border-radius: 10px;
-    background-color: white;
+    background-color: #ffffff80;
 }
 
 .logo img {
@@ -64,6 +64,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     background-color: rgba(255, 255, 255, 0.2);
+    margin-top: 10rem;
 }
 
 .welcome-title {
@@ -228,15 +229,6 @@ body {
     max-height: 500px;
     object-fit: scale-down;
 }
-
-// region footer
-.app_footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-// end region footer
 
 // #region outfit
 

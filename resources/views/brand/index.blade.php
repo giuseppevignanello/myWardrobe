@@ -11,10 +11,10 @@
         <a name="" id="" class="btn bg_secondary text-white" href="{{ route('dashboard') }}" role="button"><i
                 class="fa-solid fa-arrow-left"></i></a>
         @foreach ($brands as $brand)
-            <div class="mt-4 ">
-                <div class=" my-2 d-flex gap-4 brand_card">
+            <div class="mt-4">
+                <div class=" my-2 d-flex gap-2 brand_card p-2">
 
-                    <div class="logo">
+                    <div class="logo d-flex align-items-center justify-content-center">
                         <img src="{{ asset('storage/' . $brand->logo) }}" alt="image" height="100px" width="100px"
                             style="object-fit: contain">
                     </div>

@@ -8,7 +8,8 @@
                         class="fa-solid fa-arrow-left"></i></a>
             </div>
             <div class="mt-4">
-                <a class="btn bg_secondary text-white" href="{{ route('dress.create') }}" role="button">Add New Clothes</a>
+                <a class="btn bg_secondary" href="{{ route('dress.create') }}" role="button">Add New
+                    Clothes</a>
             </div>
         </div>
 
