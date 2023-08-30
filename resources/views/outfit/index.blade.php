@@ -13,7 +13,7 @@
         <div class="container mt-2">
             <ul class="list-unstyled">
                 @foreach ($outfits as $outfit)
-                    <a class="text-decoration-none text-white" href="outfit/{{ $outfit->id }}">
+                    <a class="text-decoration-none text-white" href="outfit/{{ $outfit->id }}/edit">
                         <li>
                             <div
                                 class="outfit_index_card row justify-content-between bg_secondary text-white align-items-center mb-2 rounded-1">

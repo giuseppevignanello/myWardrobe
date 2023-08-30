@@ -46,8 +46,11 @@
 
         </ul>
         {{-- form to send data --}}
-        <form method="post" action="{{ route('outfit.updateP', $outfit) }}">
+        <form method="post" action="{{ route('outfit.update', $outfit) }}">
             @csrf
+
+            @method('PUT')
+
             <input type="hidden" name="user_id" value="{{ $user->id }}">
             <input type="hidden" name="outfit_id" value="{{ $outfit->id }}">
             <div id="outfitData">
@@ -71,6 +74,11 @@
                     <option value="summer">Summer</option>
                 </select>
             </div>
+            @error('season')
+                <div class="alert alert-danger" role="alert">
+                    <strong>Error:</strong> {{ $message }}
+                </div>
+            @enderror
             <button type="submit" class="btn bg_secondary text-white">Save this outfit</button>
         </form>
 
