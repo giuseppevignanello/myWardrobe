@@ -1,0 +1,16 @@
+:root {
+    --main-color: #ffea9d;
+    /* Grigio antracite */
+    --secondary-color: #585858;
+    /* Grigio medio */
+    --accent-color: #ffffff;
+    /* Bianco */
+    --background-light: #f2f2f2;
+    /* Grigio chiaro */
+    --background-dark: #333333;
+    /* Nero */
+}
+
+body {
+    background-color: var(--main-color)
+}

@@ -46,7 +46,7 @@
 
         </ul>
         {{-- form to send data --}}
-        <form method="post" action="{{ route('outfit.store') }}">
+        <form method="post" action="">
             @csrf
             <input type="hidden" name="user_id" value="{{ $user->id }}">
             <div id="outfitData">
