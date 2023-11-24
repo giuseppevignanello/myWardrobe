@@ -17,17 +17,21 @@
     <div class="container pt-3">
         <a name="" id="" class="btn bg_secondary text-white" href="{{ route('dress.index') }}" role="button"><i
                 class="fa-solid fa-arrow-left"></i></a>
-        <form action="{{ route('dress.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('dress.store') }}" method="post" enctype="multipart/form-data" id="createDressForm">
             @csrf
             <div class="d-md-flex justify-content-around">
                 <div class="left">
                     <div class="mb-3">
+
                         <label for="name" class="form-label fw-bold ">Name</label>
                         <input type="text" name="name" id="name"
                             class="form-control @error('name')
                         is-invalid
                     @enderror"
                             value="{{ old('name') }}">
+                        <div id="nameError" class="badge bg-danger d-none">Name must contains between 3 and 256 characters
+                        </div>
+                        <br>
                         <small class="">Min 3, max 256 characters</small>
                     </div>
                     <div class="mb-3">
@@ -53,6 +57,8 @@
                             <option value="Underwear">Underwear</option>
                             <option value="Shoes">Shoes</option>
                         </select>
+                        <div id="typeError" class="badge bg-danger d-none">Type field is required</div>
+                        <br>
                     </div>
                     <div class="mb-3">
                         <div class="d-flex align-items-center gap-3 mb-3">
@@ -68,6 +74,8 @@
                             @empty
                             @endforelse
                         </select>
+                        <div id="brandError" class="badge bg-danger d-none">Brand field is required</div>
+                        <br>
                     </div>
                     <div class="mb-3">
                         <label for="size" class="form-label fw-bold">Size</label>
@@ -83,6 +91,8 @@
                             <option value="M">M</option>
                             <option value="L">L</option>
                         </select>
+                        <div id="sizeError" class="badge bg-danger d-none">Size field is required</div>
+                        <br>
                     </div>
                     <div class="mb-3">
                         <label for="color" class="form-label fw-bold">Color</label>
@@ -91,6 +101,9 @@
                         is-invalid
                     @enderror"
                             value="{{ old('color') }}">
+                        <div id="colorError" class="badge bg-danger d-none">Color must contains between 3 and 256 characters
+                        </div>
+                        <br>
                         <small class="">Min 3, max 256 characters</small>
                     </div>
                 </div>
@@ -103,12 +116,16 @@
                             value="{{ old('price') }}">
                         <small class=""></small>
                     </div>
+                    <div id="priceError" class="badge bg-danger d-none">Please insert a positive number</div>
+                    <br>
                     <div class="mb-3">
                         <label for="purchase_date" class="form-label fw-bold">Purchase Date</label>
-                        <input type="date" step="0.01" name="purchase_date" id="purchase_date" class="form-control"
-                            value="{{ old('purchase_date') }}">
+                        <input type="date" step="0.01" name="purchase_date" id="purchase_date"
+                            class="form-control" value="{{ old('purchase_date') }}">
                         <small class=""></small>
                     </div>
+                    <div id="purchase_date_error" class="badge bg-danger d-none">Date must be in the past</div>
+                    <br>
                     <div class="mb-3">
                         <label for="season" class="form-label fw-bold ">Season</label>
                         <select class="form-select form-select-lg" name="season" id="season"
@@ -119,6 +136,8 @@
                             <option value="Spring">Spring</option>
                             <option value="Summer">Summer</option>
                         </select>
+                        <div id="seasonError" class="badge bg-danger d-none">Season field is required</div>
+                        <br>
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label fw-bold">Image</label>
@@ -131,16 +150,20 @@
                         <textarea class="form-control" name="description" id="description" rows="3"
                             value="{{ old('description') }}"></textarea>
                     </div>
+                    <div id="descriptionError" class="badge bg-danger d-none">Description field must include less than 256
+                        characters</div>
+                    <br>
                     <button type="submit" class="btn bg_accent text-white">Add</button>
                 </div>
 
             </div>
 
 
-
+        </form>
 
 
     </div>
+    <script src="{{ asset('js/createDressValidation.js') }}"></script>
 
-    </form>
+
 @endsection

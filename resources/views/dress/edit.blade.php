@@ -18,7 +18,7 @@
         <a name="" id="" class="btn bg_secondary text-white" href="{{ route('dress.index') }}" role="button"><i
                 class="fa-solid fa-arrow-left"></i></a>
         <h1 class="display-5">Edit {{ $dress->name }}</h1>
-        <form action="{{ route('dress.update', $dress) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('dress.update', $dress) }}" method="put" enctype="multipart/form-data">
             @csrf
             <div class="d-md-flex justify-content-around">
                 <div class="left">
