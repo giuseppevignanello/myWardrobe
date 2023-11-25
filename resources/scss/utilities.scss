@@ -13,3 +13,10 @@
 .bg_accent {
     background-color: var(--accent-color);
 }
+
+@media screen and (min-width: 1200px) {
+
+    .w_lg_50 {
+        width: 50% !important;
+    }
+}
