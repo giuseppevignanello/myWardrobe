@@ -117,7 +117,7 @@ class OutfitController extends Controller
         // get updated outfit to show them on index
         $outfits = Outfit::where('user_id', $user->id)->get();
 
-        return view('outfit.index', compact('outfits'))->with('message', 'Outfit updated successfully');
+        return redirect()->route('outfit.index')->with('message', 'Outfit updated successfully');
     }
 
     /**
