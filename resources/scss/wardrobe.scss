@@ -120,3 +120,7 @@
 }
 
 // end region wardrobe
+
+.modal-backdrop.show {
+    z-index: -1 !important;
+}

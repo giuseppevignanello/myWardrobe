@@ -3,14 +3,19 @@
 @section('content')
     <div class="container mt-4">
         <div class="d-flex align-items-center gap-2 ">
+
+            {{-- buttons --}}
+            {{-- come back button --}}
             <div class="mt-4">
                 <a class="btn bg-light" href="{{ route('dashboard') }}" role="button"><i
                         class="fa-solid fa-arrow-left"></i></a>
             </div>
+            {{-- add new dress button --}}
             <div class="mt-4">
                 <a class="btn bg_secondary text-white" href="{{ route('dress.create') }}" role="button">Add New
                     Clothes</a>
             </div>
+            {{-- end buttons --}}
         </div>
 
         <div class="wardrobe">
@@ -41,8 +46,7 @@
 
 
                             </div>
-                            <div class="modal fade" id="deleteModal-{{ $dress->id }}" tabindex="-1"
-                                data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+                            <div class="modal fade" id="deleteModal-{{ $dress->id }}" tabindex="-1" role="dialog"
                                 aria-labelledby="modalTitleId" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
                                     role="document">
@@ -67,6 +71,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </li>
                     @empty
                     @endforelse
@@ -76,6 +81,7 @@
             <div class="shadow"></div>
 
         </div>
+
 
 
 
