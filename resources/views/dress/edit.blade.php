@@ -18,7 +18,7 @@
         <a name="" id="" class="btn bg_secondary text-white" href="{{ route('dress.index') }}" role="button"><i
                 class="fa-solid fa-arrow-left"></i></a>
         <h1 class="display-5">Edit {{ $dress->name }}</h1>
-        <form action="{{ route('dress.update', $dress) }}" method="put" enctype="multipart/form-data">
+        <form action="{{ route('dress.update', $dress) }}" method="put" enctype="multipart/form-data" id="createDressForm">
             @csrf
             <div class="d-md-flex justify-content-around">
                 <div class="left">
@@ -29,6 +29,9 @@
                         is-invalid
                     @enderror"
                             value="{{ old('name', $dress->name) }}">
+                        <div id="nameError" class="badge bg-danger d-none">Name must contains between 3 and 256 characters
+                        </div>
+                        <br>
                         <small class="text-muted">Min 3, max 256 characters</small>
                     </div>
                     <div class="mb-3">
@@ -54,6 +57,8 @@
                             <option value="Underwear">Underwear</option>
                             <option value="Shoes">Shoes</option>
                         </select>
+                        <div id="typeError" class="badge bg-danger d-none">Type field is required</div>
+                        <br>
                     </div>
                     <div class="mb-3">
                         <div class="d-flex align-items-center gap-3 mb-3">
@@ -62,9 +67,16 @@
                                 new Brand</a>
                         </div>
 
-                        <input type="text" name="brand" id="brand" class="form-control"
-                            value="{{ old('brand') }}">
-                        <small class="text-muted">Min 3, max 256 characters</small>
+                        <select name="brand" id="brand" value="{{ old('brand') }}"
+                            class="form-select form-select-lg @error('brand') is-invalid @enderror">
+                            <option selected></option>
+                            @forelse ($brands as $brand)
+                                <option value="{{ $brand->name }}">{{ $brand->name }}</option>
+                            @empty
+                            @endforelse
+                        </select>
+                        <div id="brandError" class="badge bg-danger d-none">Brand field is required</div>
+                        <br>
                     </div>
                     <div class="mb-3">
                         <label for="size" class="form-label fw-bold">Size</label>
@@ -80,6 +92,8 @@
                             <option value="M">M</option>
                             <option value="L">L</option>
                         </select>
+                        <div id="sizeError" class="badge bg-danger d-none">Size field is required</div>
+                        <br>
                     </div>
                     <div class="mb-3">
                         <label for="color" class="form-label fw-bold">Color</label>
@@ -88,6 +102,9 @@
                         is-invalid
                     @enderror"
                             value="{{ old('color') }}">
+                        <div id="colorError" class="badge bg-danger d-none">Color must contains between 3 and 256 characters
+                        </div>
+                        <br>
                         <small class="text-muted">Min 3, max 256 characters</small>
                     </div>
                 </div>
@@ -96,14 +113,17 @@
                         <label for="price" class="form-label fw-bold">Price</label>
                         <input type="number" step="0.01" name="price" id="price" class="form-control"
                             value="{{ old('price') }}">
-                        <small class="text-muted"></small>
                     </div>
+                    <div id="priceError" class="badge bg-danger d-none">Please insert a positive number</div>
+                    <br>
                     <div class="mb-3">
                         <label for="purchase_date fw-bold" class="form-label fw-bold">Purchase Date</label>
-                        <input type="date" step="0.01" name="purchase_date" id="purchase_date" class="form-control"
-                            value="{{ old('purchase_date') }}">
+                        <input type="date" step="0.01" name="purchase_date" id="purchase_date"
+                            class="form-control" value="{{ old('purchase_date') }}">
                         <small class="text-muted"></small>
                     </div>
+                    <div id="purchase_date_error" class="badge bg-danger d-none">Date must be in the past</div>
+                    <br>
                     <div class="mb-3">
                         <label for="season" class="form-label fw-bold">Season</label>
                         <select class="form-select form-select-lg" name="season" id="season"
@@ -114,6 +134,8 @@
                             <option value="Spring">Spring</option>
                             <option value="Summer">Summer</option>
                         </select>
+                        <div id="seasonError" class="badge bg-danger d-none">Season field is required</div>
+                        <br>
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label fw-bold">Image</label>
@@ -126,11 +148,17 @@
                         <textarea class="form-control" name="description" id="description" rows="3"
                             value="{{ old('description') }}"></textarea>
                     </div>
+                    <div id="descriptionError" class="badge bg-danger d-none">Description field must include less than 256
+                        characters</div>
+                    <br>
                     <button type="submit" class="btn bg_accent text-white">Add</button>
                 </div>
             </div>
 
 
+        </form>
     </div>
-    </form>
+
+    <script src="{{ asset('js/createEditDressValidation.js') }}"></script>
+
 @endsection

@@ -114,7 +114,6 @@
                         <label for="price" class="form-label fw-bold">Price</label>
                         <input type="number" step="0.01" name="price" id="price" class="form-control"
                             value="{{ old('price') }}">
-                        <small class=""></small>
                     </div>
                     <div id="priceError" class="badge bg-danger d-none">Please insert a positive number</div>
                     <br>
@@ -122,7 +121,6 @@
                         <label for="purchase_date" class="form-label fw-bold">Purchase Date</label>
                         <input type="date" step="0.01" name="purchase_date" id="purchase_date"
                             class="form-control" value="{{ old('purchase_date') }}">
-                        <small class=""></small>
                     </div>
                     <div id="purchase_date_error" class="badge bg-danger d-none">Date must be in the past</div>
                     <br>
@@ -163,7 +161,7 @@
 
 
     </div>
-    <script src="{{ asset('js/createDressValidation.js') }}"></script>
+    <script src="{{ asset('js/createEditDressValidation.js') }}"></script>
 
 
 @endsection

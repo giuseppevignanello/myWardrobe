@@ -90,9 +90,10 @@ class DressController extends Controller
     public function edit(Dress $dress)
     {
         $user = Auth::user();
+        $brands = Brand::all();
 
 
-        return view('dress.edit', compact('user', 'dress'));
+        return view('dress.edit', compact('user', 'dress', 'brands'));
     }
 
     /**
