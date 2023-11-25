@@ -4,6 +4,7 @@
 
 @section('content')
 
+    {{-- Error message --}}
     @if ($errors->any())
         <div class='alert alert-danger'>
             <ul>
@@ -15,12 +16,18 @@
     @endif
 
     <div class="container pt-3">
-        <a name="" id="" class="btn bg_secondary text-white" href="{{ route('dress.index') }}" role="button"><i
+        {{-- come back button --}}
+        <a class="btn bg_secondary text-white" href="{{ route('dress.index') }}" role="button"><i
                 class="fa-solid fa-arrow-left"></i></a>
+        {{-- end come back button --}}
+
+
         <form action="{{ route('dress.store') }}" method="post" enctype="multipart/form-data" id="createDressForm">
             @csrf
             <div class="d-md-flex justify-content-around">
+                {{-- left section --}}
                 <div class="left">
+                    {{-- name --}}
                     <div class="mb-3">
 
                         <label for="name" class="form-label fw-bold ">Name</label>
@@ -29,11 +36,14 @@
                         is-invalid
                     @enderror"
                             value="{{ old('name') }}">
+                        {{-- name error --}}
                         <div id="nameError" class="badge bg-danger d-none">Name must contains between 3 and 256 characters
                         </div>
                         <br>
+                        {{-- end name error --}}
                         <small class="">Min 3, max 256 characters</small>
                     </div>
+                    {{-- type --}}
                     <div class="mb-3">
                         <label for="type" class="form-label fw-bold">Type</label>
                         <select
@@ -57,9 +67,12 @@
                             <option value="Underwear">Underwear</option>
                             <option value="Shoes">Shoes</option>
                         </select>
+                        {{-- type error --}}
                         <div id="typeError" class="badge bg-danger d-none">Type field is required</div>
                         <br>
+                        {{-- end type error --}}
                     </div>
+                    {{-- brand --}}
                     <div class="mb-3">
                         <div class="d-flex align-items-center gap-3 mb-3">
                             <label for="brand" class="form-label fw-bold ">Brand</label>
@@ -74,9 +87,12 @@
                             @empty
                             @endforelse
                         </select>
+                        {{-- brand error --}}
                         <div id="brandError" class="badge bg-danger d-none">Brand field is required</div>
                         <br>
+                        {{-- end brand error --}}
                     </div>
+                    {{-- size --}}
                     <div class="mb-3">
                         <label for="size" class="form-label fw-bold">Size</label>
                         <select
@@ -91,9 +107,12 @@
                             <option value="M">M</option>
                             <option value="L">L</option>
                         </select>
+                        {{-- error size --}}
                         <div id="sizeError" class="badge bg-danger d-none">Size field is required</div>
                         <br>
+                        {{-- end error size --}}
                     </div>
+                    {{-- color --}}
                     <div class="mb-3">
                         <label for="color" class="form-label fw-bold">Color</label>
                         <input type="text" name="color" id="color"
@@ -101,31 +120,42 @@
                         is-invalid
                     @enderror"
                             value="{{ old('color') }}">
+
+                        {{-- error color --}}
                         <div id="colorError" class="badge bg-danger d-none">Color must contains between 3 and 256 characters
                         </div>
                         <br>
-                        <small class="">Min 3, max 256 characters</small>
+                        {{-- end error color --}}
+                        <small class="text-muted">Min 3, max 256 characters</small>
                     </div>
                 </div>
+                {{-- end left --}}
+                {{-- right --}}
                 <div class="right">
-
-                    {{-- Change in a select  --}}
+                    {{-- price --}}
                     <div class="mb-3">
                         <label for="price" class="form-label fw-bold">Price</label>
                         <input type="number" step="0.01" name="price" id="price" class="form-control"
                             value="{{ old('price') }}">
                     </div>
+                    {{-- error price --}}
                     <div id="priceError" class="badge bg-danger d-none">Please insert a positive number</div>
                     <br>
+                    {{-- end error price --}}
+                    {{-- date --}}
                     <div class="mb-3">
-                        <label for="purchase_date" class="form-label fw-bold">Purchase Date</label>
+                        <label for="purchase_date fw-bold" class="form-label fw-bold">Purchase Date</label>
                         <input type="date" step="0.01" name="purchase_date" id="purchase_date"
                             class="form-control" value="{{ old('purchase_date') }}">
+                        <small class="text-muted"></small>
                     </div>
+                    {{-- error date --}}
                     <div id="purchase_date_error" class="badge bg-danger d-none">Date must be in the past</div>
                     <br>
+                    {{-- end error date --}}
+                    {{-- season --}}
                     <div class="mb-3">
-                        <label for="season" class="form-label fw-bold ">Season</label>
+                        <label for="season" class="form-label fw-bold">Season</label>
                         <select class="form-select form-select-lg" name="season" id="season"
                             value="{{ old('season') }}">
                             <option selected></option>
@@ -134,23 +164,30 @@
                             <option value="Spring">Spring</option>
                             <option value="Summer">Summer</option>
                         </select>
+                        {{-- error season --}}
                         <div id="seasonError" class="badge bg-danger d-none">Season field is required</div>
                         <br>
+                        {{-- end error season --}}
                     </div>
+                    {{-- image --}}
                     <div class="mb-3">
                         <label for="image" class="form-label fw-bold">Image</label>
                         <input type="file" name="image" id="image" class="form-control"
                             value="{{ old('image') }}">
-                        <small class=""></small>
+                        <small class="text-muted"></small>
                     </div>
+                    {{-- description --}}
                     <div class="mb-3">
                         <label for="description" class="form-label fw-bold">Description</label>
                         <textarea class="form-control" name="description" id="description" rows="3"
                             value="{{ old('description') }}"></textarea>
                     </div>
+                    {{-- error description --}}
                     <div id="descriptionError" class="badge bg-danger d-none">Description field must include less than 256
                         characters</div>
                     <br>
+                    {{-- end error description --}}
+                    {{-- end right --}}
                     <button type="submit" class="btn bg_accent text-white">Add</button>
                 </div>
 
