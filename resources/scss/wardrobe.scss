@@ -8,22 +8,22 @@
     transform-style: preserve-3d;
     transform: perspective(2500px);
     cursor: pointer;
-    margin: 2rem auto;
+    margin: 7rem auto;
 }
 
-.wardrobe:hover .door {
+.wardrobe.clicked .door {
     transform: rotateY(-160deg);
 }
 
-.wardrobe:hover .door:before {
+.wardrobe.clicked .door:before {
     display: none;
 }
 
-.wardrobe:hover .second-door {
+.wardrobe.clicked .second-door {
     transform: rotateY(160deg);
 }
 
-.wardrobe:hover .second-door:before {
+.wardrobe.clicked .second-door:before {
     display: none;
 }
 
@@ -123,4 +123,28 @@
 
 .modal-backdrop.show {
     z-index: -1 !important;
+}
+
+#app-container {
+    transition: transform 0.5s ease-in-out;
+}
+
+#zoomContainer {
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+}
+
+#zoomContainer.clicked {
+    transform: scale(2.2);
+
+}
+
+#catalogContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(114 114 114 / 90%);
+    z-index: 1000;
 }
