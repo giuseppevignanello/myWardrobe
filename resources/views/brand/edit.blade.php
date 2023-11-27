@@ -78,4 +78,5 @@
 
         </form>
     </div>
+    <script src="{{ asset('js/createEditBrandValidation.js') }}"></script>
 @endsection

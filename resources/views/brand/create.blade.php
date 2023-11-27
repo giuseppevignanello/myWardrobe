@@ -23,7 +23,7 @@
     <div class="container pt-3 ">
         <h3 class="mb-4 ms-5 display-4">Create new Brand</h3>
 
-        <form action="{{ route('brand.store') }}" method="post" enctype="multipart/form-data">
+        <form id="brandForm" action="{{ route('brand.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="d-md-flex justify-content-center gap-5 bg-white p-3 rounded-2 w-75 w_lg_50 m-auto">
                 <div class="left 
@@ -36,10 +36,14 @@
                 is-invalid
             @enderror value="{{ old('name') }}">
                     </div>
+                    <div id="nameError" class="badge bg-danger d-none">Name must contains between 3 and 256 characters
+                    </div>
                     <div class="mb-3">
                         <label for="logo" class="form-label fw-bold">Logo</label>
                         <input type="file" class="form-control bg-light" name="logo" id="logo"
                             aria-describedby="helpId" placeholder="logo">
+                    </div>
+                    <div id="logoError" class="badge bg-danger d-none">Name must contains between 3 and 256 characters
                     </div>
                     <div class="mb-3">
                         <label for="country" class="form-label fw-bold ">Country</label>
@@ -49,6 +53,8 @@
                             @endforeach
 
                         </select>
+                    </div>
+                    <div id="countryError" class="badge bg-danger d-none">Name must contains between 3 and 256 characters
                     </div>
                 </div>
 
@@ -66,9 +72,14 @@
                             </div>
                         @endforeach
                     </div>
+                    <div id="categoryError" class="badge bg-danger d-none">Name must contains between 3 and 256 characters
+                    </div>
                     <div class="mb-3">
                         <label for="description" class="form-label fw-bold ">Description</label>
                         <textarea class="form-control bg-light" name="description" id="description" rows="3"></textarea>
+                    </div>
+                    <div id="descriptionError" class="badge bg-danger d-none">Name must contains between 3 and 256
+                        characters
                     </div>
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn bg_accent text-white">Add</button>
@@ -79,4 +90,5 @@
 
         </form>
     </div>
+    <script src="{{ asset('js/createEditBrandValidation.js') }}"></script>
 @endsection

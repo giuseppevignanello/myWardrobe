@@ -24,7 +24,7 @@
 
         <h1 class="display-5">Edit {{ $dress->name }}</h1>
 
-        <form action="{{ route('dress.update', $dress) }}" method="put" enctype="multipart/form-data" id="createDressForm">
+        <form action="{{ route('dress.update', $dress) }}" method="put" enctype="multipart/form-data" id="dressForm">
             @csrf
             @method('PUT')
             <div class="d-md-flex justify-content-center gap-5 bg-white p-3 rounded-2 w-75 w_lg_50 m-auto">

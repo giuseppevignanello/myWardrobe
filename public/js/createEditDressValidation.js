@@ -1,4 +1,4 @@
-const createDressForm = document.getElementById("createDressForm");
+const dressForm = document.getElementById("dressForm");
 
 const fields = [
     { id: "name", errorId: "nameError", minLength: 3, maxLength: 256 },
@@ -16,7 +16,7 @@ const fields = [
     { id: "description", errorId: "descriptionError", maxLength: 256 },
 ];
 
-createDressForm.onsubmit = function (event) {
+dressForm.onsubmit = function (event) {
     fields.forEach((field) => {
         const inputElement = document.getElementById(field.id);
         const errorElement = document.getElementById(field.errorId);

@@ -22,7 +22,7 @@
         {{-- end come back button --}}
 
 
-        <form action="{{ route('dress.store') }}" method="post" enctype="multipart/form-data" id="createDressForm">
+        <form action="{{ route('dress.store') }}" method="post" enctype="multipart/form-data" id="dressForm">
             @csrf
             <div class="d-md-flex justify-content-center gap-5 bg-white p-3 rounded-2 w-75 w_lg_50 m-auto">
                 {{-- left section --}}
