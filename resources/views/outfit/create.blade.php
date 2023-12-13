@@ -75,5 +75,6 @@
 
         {{-- end form --}}
     </div>
+    <script src="{{ asset('js/openWardrobe.js') }}"></script>
     <script src="{{ asset('js/outfitCarousel.js') }}"></script>
 @endsection

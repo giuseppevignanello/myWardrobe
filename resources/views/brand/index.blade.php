@@ -7,7 +7,7 @@
                 Brand</a>
         </button>
     </div>
-    <div class="container">
+    <div class="container w-50 m-auto">
         <a name="" id="" class="btn bg_secondary text-white" href="{{ route('dashboard') }}" role="button"><i
                 class="fa-solid fa-arrow-left"></i></a>
         @foreach ($brands as $brand)

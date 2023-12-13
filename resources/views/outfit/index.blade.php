@@ -10,12 +10,12 @@
             </div>
 
         </div>
-        <div class="container mt-2">
+        <div class="container  w-50 m-auto  mt-2">
             <ul class="list-unstyled">
                 @foreach ($outfits as $outfit)
                     <li>
                         <div
-                            class="outfit_index_card row justify-content-between bg_secondary align-items-center mb-2 rounded-1">
+                            class="outfit_index_card row justify-content-between bg_main text-white align-items-center mb-2 rounded-1">
                             <div class="col-6 p-3">
                                 <h5 class="card-title">{{ $outfit->name }}</h5>
                                 <div>

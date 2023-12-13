@@ -8,11 +8,12 @@
                 <ul class="list-unstyled">
                     @forelse ($dresses as $dress)
                         <li class="d-flex align-items-center gap-2 my-1 justify-content-between">
-                            <a class="text-decoration-none text-black" href="dress/{{ $dress->id }}" role="button">
-                                <div class="dress d-flex align-items-center gap-2">
-                                    <img class="rounded-circle ms-1 mb-1" src="{{ asset('storage/' . $dress->image) }}"
+                            <a class="text-decoration-none text-black my-2" href="dress/{{ $dress->id }}"
+                                role="button">
+                                <div class="dress d-flex align-items-center gap-3">
+                                    <img class="rounded-circle ms-1" src="{{ asset('storage/' . $dress->image) }}"
                                         alt="image">
-                                    <p class="display-6"> {{ $dress->name }}</p>
+                                    <div class="fs-4"> {{ $dress->name }}</div>
                                 </div>
                             </a>
                             <div class="d-flex gap-2 p-1">

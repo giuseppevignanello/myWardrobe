@@ -24,7 +24,7 @@
 
         <h1 class="display-5">Edit {{ $dress->name }}</h1>
 
-        <form action="{{ route('dress.update', $dress) }}" method="put" enctype="multipart/form-data" id="dressForm">
+        <form action="{{ route('dress.update', $dress->id) }}" method="post" enctype="multipart/form-data" id="dressForm">
             @csrf
             @method('PUT')
             <div class="d-md-flex justify-content-center gap-5 bg-white p-3 rounded-2 w-75 w_lg_50 m-auto">
@@ -34,7 +34,7 @@
                     <div class="mb-3">
 
                         <label for="name" class="form-label fw-bold ">Name</label>
-                        <input type="text" name="name" id="name"
+                        <input type="text" name="name" id="name" value="{{ $dress->name }}"
                             class="form-control bg-light @error('name')
                         is-invalid
                     @enderror"
@@ -53,8 +53,8 @@
                         is-invalid
                     @enderror"
                             name="type" id="type" value="{{ old('type') }}">
-                            <option selected></option>
-                            <option value="Jacket">Jacket</option>
+                            <option></option>
+                            <option {{ $dress->type == ' Jacket' ? 'selected' : '' }} value="Jacket">Jacket</option>
                             <option value="Dress">Dress</option>
                             <option value="T-shirt">T-shirt</option>
                             <option value="Top">Top</option>
