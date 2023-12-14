@@ -152,3 +152,9 @@
     padding: 1rem;
     border-bottom: 1px solid gray;
 }
+
+@media screen and (min-width:772px) {
+    .brand_container {
+        width: 50%
+    }
+}

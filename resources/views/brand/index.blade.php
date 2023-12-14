@@ -1,14 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <button class="btn btn-light" type="button"> <a class="text-decoration-none text-black" href="{{ route('brand.create') }}">
-            Add a new
-            Brand</a>
-    </button>
-
-    <div class="container w-50 m-auto">
-        <a name="" id="" class="btn bg_secondary text-white" href="{{ route('dashboard') }}" role="button"><i
+    <div class="container-fluid brand_container m-auto">
+        <a class="btn bg_secondary text-white" href="{{ route('dashboard') }}" role="button"><i
                 class="fa-solid fa-arrow-left"></i></a>
+        <br>
+        <button class="btn btn-light  mt-2" type="button"> <a class="text-decoration-none text-black"
+                href="{{ route('brand.create') }}">
+                Add a new Brand</a>
+        </button>
+
+
         <table class="brand_table">
             <thead>
                 <tr>
@@ -52,7 +54,7 @@
                         <td>
                             <div class="d-flex gap-2 p-1 justify-content-end">
                                 <div>
-                                    <a class="btn btn-primary btn-sm" href="brand/{{ $brand->id }}/edit"
+                                    <a class="btn bg_secondary text-white btn-sm" href="brand/{{ $brand->id }}/edit"
                                         role="button"><i class="fa-solid fa-pen-to-square"></i></a>
                                 </div>
                                 <div>
