@@ -1,46 +1,72 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="p-3 mb-2 jumbotron d-flex align-items-end justify-content-end">
-        <button class="btn btn-light" type="button"> <a class="text-decoration-none text-black"
-                href="{{ route('brand.create') }}"> Add a new
-                Brand</a>
-        </button>
-    </div>
+    <button class="btn btn-light" type="button"> <a class="text-decoration-none text-black" href="{{ route('brand.create') }}">
+            Add a new
+            Brand</a>
+    </button>
+
     <div class="container w-50 m-auto">
         <a name="" id="" class="btn bg_secondary text-white" href="{{ route('dashboard') }}" role="button"><i
                 class="fa-solid fa-arrow-left"></i></a>
-        @foreach ($brands as $brand)
-            <div class="mt-4">
-                <div class=" my-2 p-2 brand_card ">
-                    <div class="d-flex gap-2 ">
-                        <div class="logo d-flex align-items-center justify-content-center">
-                            <img src="{{ asset('storage/' . $brand->logo) }}" alt="image" height="100px" width="100px"
-                                style="object-fit: contain">
-                        </div>
-                        <div>
-                            <h6> {{ $brand->name }} </h6>
-                            <span> {{ $brand->country }}</span>
-                            <p> {{ $brand->description }}</p>
-                        </div>
-                    </div>
-                    <div class="d-flex gap-2 p-1 justify-content-end">
-                        <div>
-                            <a class="btn btn-primary btn-sm" href="brand/{{ $brand->id }}/edit" role="button"><i
-                                    class="fa-solid fa-pen-to-square"></i></a>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#deleteModal-{{ $brand->id }}">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
+        <table class="brand_table">
+            <thead>
+                <tr>
+                    <th>
+                        Logo
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Country
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
 
 
-                    </div>
-                </div>
+                @foreach ($brands as $brand)
+                    <tr>
+                        <td>
+                            <div>
+                                <img src="{{ asset('storage/' . $brand->logo) }}" alt="image" height="50px"
+                                    width="50px" style="object-fit: contain">
+                            </div>
+                        </td>
+                        <td>
+                            <span> {{ $brand->name }} </span>
+                        </td>
+                        <td>
+                            <span> {{ $brand->country }} </span>
+                        </td>
+                        <td>
+                            <span> {{ $brand->description }} </span>
+                        </td>
+                        <td>
+                            <div class="d-flex gap-2 p-1 justify-content-end">
+                                <div>
+                                    <a class="btn btn-primary btn-sm" href="brand/{{ $brand->id }}/edit"
+                                        role="button"><i class="fa-solid fa-pen-to-square"></i></a>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#deleteModal-{{ $brand->id }}">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
 
-            </div>
+
+                            </div>
+                        </td>
+                    </tr>
+            </tbody>
 
             {{-- delete modal --}}
             <div class="modal fade" id="deleteModal-{{ $brand->id }}" tabindex="-1" data-bs-backdrop="static"
@@ -65,7 +91,8 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+            @endforeach
+        </table>
 
     </div>
 @endsection

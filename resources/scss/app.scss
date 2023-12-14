@@ -20,7 +20,7 @@
 .jumbotron {
     background-image: url('/public/img/shopping.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
     background-position: bottom;
     position: relative;
     height: 200px;
@@ -140,3 +140,15 @@
 }
 
 // #endregion button
+
+.brand_table {
+    margin-top: 2rem;
+    border-radius: 8px;
+    background-color: whitesmoke;
+}
+
+.brand_table th,
+.brand_table td {
+    padding: 1rem;
+    border-bottom: 1px solid gray;
+}
