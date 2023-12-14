@@ -65,7 +65,6 @@
                             <div class="form-check @error('categories') is-invalid @enderror">
                                 <label class="form-check-label  ">
                                     <input type="checkbox" name="categories[]" value="{{ $category->id }}"
-                                        class="form-check-input bg-light"
                                         {{ in_array($category->id, old('categories', [])) ? 'checked' : '' }}>
                                     {{ $category->name }}
                                 </label>

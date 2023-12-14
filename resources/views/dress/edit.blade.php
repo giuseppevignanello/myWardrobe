@@ -52,9 +52,8 @@
                             class="form-select form-select-lg bg-light @error('type')
                         is-invalid
                     @enderror"
-                            name="type" id="type" value="{{ old('type') }}">
-                            <option></option>
-                            <option {{ $dress->type == ' Jacket' ? 'selected' : '' }} value="Jacket">Jacket</option>
+                            name="type" id="type" value="{{ $dress->type }}">
+                            <option value="Jacket">Jacket</option>
                             <option value="Dress">Dress</option>
                             <option value="T-shirt">T-shirt</option>
                             <option value="Top">Top</option>
@@ -83,7 +82,6 @@
                         </div>
                         <select name="brand" id="brand" value="{{ old('brand') }}"
                             class="form-select form-select-lg bg-light @error('brand') is-invalid @enderror">
-                            <option selected></option>
                             @forelse ($brands as $brand)
                                 <option value="{{ $brand->name }}">{{ $brand->name }}</option>
                             @empty
@@ -101,8 +99,7 @@
                             class="form-select form-select-lg bg-light @error('size')
                         is-invalid
                     @enderror"
-                            name="size" id="size" value="{{ old('size') }}">
-                            <option selected></option>
+                            name="size" id="size" value="{{ $dress->size }}">
                             <option value="XXS">XXS</option>
                             <option value="XS">XS</option>
                             <option value="S">S</option>
@@ -121,7 +118,7 @@
                             class="form-control bg-light @error('color')
                         is-invalid
                     @enderror"
-                            value="{{ old('color') }}">
+                            value="{{ $dress->color }}">
 
                         {{-- error color --}}
                         <div id="colorError" class="badge bg-danger d-none">Color must contains between 3 and 256 characters
@@ -138,7 +135,7 @@
                     <div class="mb-3">
                         <label for="price" class="form-label fw-bold">Price</label>
                         <input type="number" step="0.01" name="price" id="price" class="form-control bg-light"
-                            value="{{ old('price') }}">
+                            value="{{ $dress->price }}">
                     </div>
                     {{-- error price --}}
                     <div id="priceError" class="badge bg-danger d-none">Please insert a positive number</div>
@@ -148,7 +145,7 @@
                     <div class="mb-3">
                         <label for="purchase_date fw-bold" class="form-label fw-bold">Purchase Date</label>
                         <input type="date" step="0.01" name="purchase_date" id="purchase_date"
-                            class="form-control bg-light" value="{{ old('purchase_date') }}">
+                            class="form-control bg-light" value="{{ $dress->purchase_date }}">
                         <small class="text-muted"></small>
                     </div>
                     {{-- error date --}}
@@ -159,8 +156,7 @@
                     <div class="mb-3">
                         <label for="season" class="form-label fw-bold">Season</label>
                         <select class="form-select form-select-lg bg-light" name="season" id="season"
-                            value="{{ old('season') }}">
-                            <option selected></option>
+                            value="{{ $dress->season }}">
                             <option value="Autumn">Autumn</option>
                             <option value="Winter">Winter</option>
                             <option value="Spring">Spring</option>
@@ -175,14 +171,14 @@
                     <div class="mb-3">
                         <label for="image" class="form-label fw-bold">Image</label>
                         <input type="file" name="image" id="image" class="form-control bg-light"
-                            value="{{ old('image') }}">
+                            value="{{ $dress->image }}">
                         <small class="text-muted"></small>
                     </div>
                     {{-- description --}}
                     <div class="mb-3">
                         <label for="description" class="form-label fw-bold">Description</label>
                         <textarea class="form-control bg-light" name="description" id="description" rows="3"
-                            value="{{ old('description') }}"></textarea>
+                            value="{{ $dress->description }}"></textarea>
                     </div>
                     {{-- error description --}}
                     <div id="descriptionError" class="badge bg-danger d-none">Description field must include less than 256

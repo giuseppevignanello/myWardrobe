@@ -33,7 +33,7 @@
                             aria-describedby="helpId" placeholder="name"
                             @error('name')
                 is-invalid
-            @enderror value="{{ old('name') }}">
+            @enderror value="{{ $brand->name }}">
                     </div>
                     <div class="mb-3">
                         <label for="logo" class="form-label fw-bold">Logo</label>
@@ -42,7 +42,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="country" class="form-label fw-bold ">Country</label>
-                        <select class="form-select form-select-lg bg-light " name="country" id="country">
+                        <select class="form-select form-select-lg bg-light " name="country" id="country"
+                            value="{{ $brand->country }}">
                             @foreach ($countries as $country)
                                 <option value="{{ $country }}">{{ $country }}</option>
                             @endforeach
@@ -56,18 +57,19 @@
                         <p class="fw-bold">Select at least one category</p>
                         @foreach ($categories as $category)
                             <div class="form-check @error('categories') is-invalid @enderror">
-                                <label class="form-check-label  ">
+                                <label class="form-check-label">
                                     <input type="checkbox" name="categories[]" value="{{ $category->id }}"
-                                        class="form-check-input bg-light"
-                                        {{ in_array($category->id, old('categories', [])) ? 'checked' : '' }}>
+                                        {{ in_array($category->id, old('categories', $brand->categories->pluck('id')->toArray())) ? 'checked' : '' }}>
                                     {{ $category->name }}
                                 </label>
                             </div>
                         @endforeach
                     </div>
+
                     <div class="mb-3">
                         <label for="description" class="form-label fw-bold ">Description</label>
-                        <textarea class="form-control bg-light" name="description" id="description" rows="3"></textarea>
+                        <textarea class="form-control bg-light" name="description" id="description" rows="3"
+                            value="{{ $brand->description }}"></textarea>
                     </div>
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn bg_accent text-white">Add</button>
