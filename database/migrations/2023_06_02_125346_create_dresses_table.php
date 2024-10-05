@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('type');
-            $table->string('brand')->nullable();
+            $table->unsignedBigInteger('brand_id');
             $table->string('size')->nullable();
             $table->string('color');
             $table->text('description')->nullable();
@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('season')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
+
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
         });
     }
 
